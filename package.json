@@ -1,0 +1,26 @@
+{
+  "name": "private-relay-ratings",
+  "description": "",
+  "version": "1.0.0",
+  "author": "Peter deHaan <peter@deseloper.com> (https://about.me/peterdehaan)",
+  "addonId": 2633704,
+  "bin": "cli.js",
+  "bugs": {
+    "url": "https://github.com/pdehaan/private-relay-ratings/issues"
+  },
+  "dependencies": {
+    "arg": "^4.1.3",
+    "axios": "^0.19.2"
+  },
+  "homepage": "https://github.com/pdehaan/private-relay-ratings#readme",
+  "keywords": [],
+  "license": "MPL-2.0",
+  "main": "api.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdehaan/private-relay-ratings.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
