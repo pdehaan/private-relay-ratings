@@ -3,29 +3,29 @@
 const arg = require("arg");
 
 const fetchAddonReviews = require("./api");
-const {addonId} = require("./package.json");
+const { addonId } = require("./package.json");
 
 const args = arg({
   // Types
-  '--score': Number,
+  "--score": Number,
 
   // Aliases
-  '-s': '--score'
+  "-s": "--score",
 });
 
 main(addonId, args["--score"]);
 
 async function main(addon, score = undefined) {
   const reviews = await fetchAddonReviews(addon, { page: 1, score });
-  // const results = [];
 
-  // results.push(...ratings);
-
+  console.log(
+    "https://addons.mozilla.org/firefox/addon/private-relay/reviews/"
+  );
   for (const result of reviews) {
     const created = new Date(result.created).toLocaleDateString("en-US");
     console.log(`
       [name=${result.user.name}]
-      [score=${result.score}] ${"✯ ".repeat(result.score)}
+      [score=${result.score}] ${"✯ ".repeat(result.score).trim()}
       [created=${created}]
       ${result.body.trim().replace(/\n/g, " ")}`);
 
