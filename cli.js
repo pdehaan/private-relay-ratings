@@ -8,15 +8,21 @@ const { addonId } = require("./package.json");
 const args = arg({
   // Types
   "--score": Number,
+  "--since": String,
 
   // Aliases
   "-s": "--score",
 });
 
-main(addonId, args["--score"]);
+const params = {
+  score: args["--score"],
+  since: args["--since"]
+};
 
-async function main(addon, score = undefined) {
-  const reviews = await fetchAddonReviews(addon, { page: 1, score });
+main(addonId, params);
+
+async function main(addon, params={}) {
+  const reviews = await fetchAddonReviews(addon, { page: 1, ...params });
   const baseUrl = "https://addons.mozilla.org/firefox/addon/private-relay/reviews/"
 
   console.log(baseUrl);
